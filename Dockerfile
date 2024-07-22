@@ -93,8 +93,7 @@ RUN echo -n 00000000-0000-0000-0000-000000000000 > $HOME/.cache/chroma/telemetry
 # Make sure the user has access to the app and root directory
 RUN chown -R $UID:$GID /app $HOME
 
-RUN if [ "$USE_OLLAMA" = "true" ]; then \
-    apt-get update && \
+RUN apt-get update && \
     # Install pandoc and netcat
     apt-get install -y --no-install-recommends pandoc netcat-openbsd curl && \
     apt-get install -y --no-install-recommends gcc python3-dev && \
